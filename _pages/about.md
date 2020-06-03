@@ -1,15 +1,12 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Kumar Thurimella"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
-
-Kumar Thurimella
-======
 
 I am a current MD/PhD student split between the University of Colorado and the University of Cambridge. As an Applied Mathematician/Software Engineer turned future physician, I am excited about bringing the forefront of technology to help aid in the discovery of the mechanisms behind inflammatory diseases of the gut. 
 
