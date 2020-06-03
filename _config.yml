@@ -82,8 +82,7 @@ analytics:
 author:
   name             : "Kumar Thurimella"
   avatar           : "WhiteCoat.jpg"
-  bio              : "Current MD Candidate at <a style='color: black;' href='https://medschool.cuanschutz.edu/'>Colorado</a> and PhD Candidate at <a style='color: black;' href='https://www.cam.ac.uk/'>Cambridge</a> interested in bringing forefront of technology to help aid in the discovery
-  of the mechanisms behind inflammatory diseases. Current <a style='color: black;' href='https://www.gatescambridge.org/'>Gates Cambridge Scholar</a>, previous Software Engineer @ <a style='color: black;' href='https://eng.uber.com/'>Uber</a> ."
+  bio              : "Current MD Candidate at <a style='color: black;' href='https://medschool.cuanschutz.edu/'>Colorado</a> and PhD Candidate at <a style='color: black;' href='https://www.cam.ac.uk/'>Cambridge</a>."
   location         : "Denver, CO & Cambridge, UK"
   employer         :
   pubmed           :
