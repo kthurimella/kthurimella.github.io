@@ -86,10 +86,10 @@ author:
   of the mechanisms behind inflammatory diseases. Current <a style='color: black;' href='https://www.gatescambridge.org/'>Gates Cambridge Scholar</a>, previous Software Engineer @ <a style='color: black;' href='https://eng.uber.com/'>Uber</a> ."
   location         : "Denver, CO & Cambridge, UK"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=kumar+thurimella"
-  googlescholar    : "https://scholar.google.com/citations?user=3PVZTukAAAAJ&hl=en"
+  pubmed           :
+  googlescholar    :
   email            : "kthurimella@gmail.com"
-  researchgate     : "https://www.researchgate.net/profile/Kumar_Thurimella"
+  researchgate     :
   uri              :
   bitbucket        :
   codepen          :
@@ -103,7 +103,7 @@ author:
   instagram        :
   impactstory      :
   lastfm           :
-  linkedin         : "https://www.linkedin.com/in/kumarthurimella/"
+  linkedin         : "kumarthurimella"
   orcid            :
   pinterest        :
   soundcloud       :
