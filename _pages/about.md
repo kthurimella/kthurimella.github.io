@@ -14,4 +14,4 @@ I am about to begin the PhD portion of my training in Biotechnology and Mathemat
 
 Previously, I worked as a Software Engineer at [Uber](https://eng.uber.com) for 3 years. I also completed my MPhil at Cambridge working at the [Sanger Institute](https://www.sanger.ac.uk/group/trynka-faculty/) and my BS in Applied Mathematics at [University of Colorado-Boulder](http://amath.colorado.edu/).
 
-![University of Cambridge](../images/Cambridge.png "Cambridge") ![University of Colorado](CUAnschutz.png "CU Anschutz") 
+![University of Cambridge](../images/Cambridge.png "Cambridge") ![University of Colorado](../images/CUAnschutz.png "CU Anschutz") 
