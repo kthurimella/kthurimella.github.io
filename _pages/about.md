@@ -23,3 +23,13 @@ Previously, I worked as a Software Engineer at [Uber](https://eng.uber.com) for 
 
   gtag('config', 'UA-33356002-2');
 </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2KTDJZWE27"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2KTDJZWE27');
+</script>
