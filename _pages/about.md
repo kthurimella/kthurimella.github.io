@@ -33,3 +33,5 @@ Previously, I worked as a Software Engineer at [Uber](https://eng.uber.com) for 
 
   gtag('config', 'G-2KTDJZWE27');
 </script>
+
+{% seo %}
