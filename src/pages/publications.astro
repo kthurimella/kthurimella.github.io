@@ -11,76 +11,118 @@ const contributing = sorted.filter((p) => !p.data.firstAuthor);
 ---
 
 <BaseLayout title="Publications — Kumar Thurimella" description="Research publications by Kumar Thurimella in computational biology, microbiome research, and applied mathematics.">
-  <section class="section">
+  <section class="pub-page">
     <div class="container">
-      <h1 class="page-title">Publications</h1>
-      <p class="page-subtitle">
-        See also my <a href="https://scholar.google.com/citations?user=3PVZTukAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>.
-      </p>
-
-      <h2 class="group-title">First & Co-First Author</h2>
-      <div class="pub-grid fade-in">
-        {firstAuthor.map((pub) => (
-          <PublicationCard
-            title={pub.data.title}
-            venue={pub.data.venue}
-            date={pub.data.date}
-            excerpt={pub.data.excerpt}
-            citation={pub.data.citation}
-            paperurl={pub.data.paperurl}
-            slug={pub.id}
-          />
-        ))}
+      <div class="pub-page__header">
+        <span class="section-label">Research Output</span>
+        <h1 class="pub-page__title">Publications</h1>
+        <p class="pub-page__subtitle">
+          See also my <a href="https://scholar.google.com/citations?user=3PVZTukAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>.
+        </p>
       </div>
 
-      <h2 class="group-title">Contributing Author</h2>
-      <div class="pub-grid fade-in">
-        {contributing.map((pub) => (
-          <PublicationCard
-            title={pub.data.title}
-            venue={pub.data.venue}
-            date={pub.data.date}
-            excerpt={pub.data.excerpt}
-            citation={pub.data.citation}
-            paperurl={pub.data.paperurl}
-            slug={pub.id}
-          />
-        ))}
+      <div class="pub-section fade-in">
+        <h2 class="pub-section__title">First & Co-First Author</h2>
+        <div class="pub-grid">
+          {firstAuthor.map((pub) => (
+            <PublicationCard
+              title={pub.data.title}
+              venue={pub.data.venue}
+              date={pub.data.date}
+              excerpt={pub.data.excerpt}
+              citation={pub.data.citation}
+              paperurl={pub.data.paperurl}
+              slug={pub.id}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div class="pub-section fade-in">
+        <h2 class="pub-section__title">Contributing Author</h2>
+        <div class="pub-grid">
+          {contributing.map((pub) => (
+            <PublicationCard
+              title={pub.data.title}
+              venue={pub.data.venue}
+              date={pub.data.date}
+              excerpt={pub.data.excerpt}
+              citation={pub.data.citation}
+              paperurl={pub.data.paperurl}
+              slug={pub.id}
+            />
+          ))}
+        </div>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .page-title {
-    font-size: 2rem;
-    font-weight: 700;
+  .pub-page {
+    padding: var(--space-3xl) 0 var(--space-4xl);
+  }
+
+  .pub-page__header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .pub-page__title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
     margin-bottom: var(--space-sm);
-    margin-top: var(--space-2xl);
   }
 
-  .page-subtitle {
+  .pub-page__subtitle {
     color: var(--color-text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: var(--space-2xl);
+    font-size: 1rem;
+    margin: 0;
   }
 
-  .page-subtitle a {
+  .pub-page__subtitle a {
     color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(13, 148, 136, 0.3);
+    text-underline-offset: 3px;
   }
 
-  .group-title {
+  .pub-page__subtitle a:hover {
+    text-decoration-color: var(--color-accent);
+  }
+
+  .pub-section {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .pub-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .pub-section__title {
+    font-family: var(--font-heading);
     font-size: 1.15rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: var(--space-lg);
     padding-bottom: var(--space-sm);
     border-bottom: 2px solid var(--color-border);
+    letter-spacing: -0.01em;
   }
 
   .pub-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
-    margin-bottom: var(--space-2xl);
+  }
+
+  @media (max-width: 768px) {
+    .pub-page__title {
+      font-size: 2rem;
+    }
+
+    .pub-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

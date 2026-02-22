@@ -5,48 +5,60 @@ const items = [
     subtitle: 'University of Cambridge',
     detail: 'Gates Cambridge Scholar',
     link: 'https://www.cam.ac.uk/',
+    period: '2022–2025',
   },
   {
     title: 'MD Candidate',
     subtitle: 'University of Colorado School of Medicine',
+    detail: 'Honors in 6/6 core clerkships · AOA',
     link: 'https://medschool.cuanschutz.edu/',
+    period: '2018–2026',
   },
   {
     title: 'Software Engineer II',
     subtitle: 'Uber',
-    detail: 'San Francisco, CA · 2015–2017',
+    detail: 'San Francisco, CA',
+    period: '2015–2017',
   },
   {
     title: 'MPhil, Computational Biology',
     subtitle: 'Wellcome Sanger Institute / University of Cambridge',
     link: 'https://www.sanger.ac.uk/group/trynka-faculty/',
+    period: '2014–2015',
   },
   {
     title: 'BS, Applied Mathematics',
     subtitle: 'University of Colorado Boulder',
-    detail: '2013',
     link: 'http://amath.colorado.edu/',
+    period: '2013',
   },
 ];
 ---
 
 <section class="section fade-in">
   <div class="container">
-    <h2 class="section-title">Background</h2>
+    <span class="section-label">Background</span>
+    <h2 class="section-title">Education & Experience</h2>
     <div class="timeline">
-      {items.map((item) => (
+      {items.map((item, i) => (
         <div class="timeline__item">
-          <div class="timeline__marker"></div>
+          <div class="timeline__line">
+            <div class="timeline__marker"></div>
+            {i < items.length - 1 && <div class="timeline__connector"></div>}
+          </div>
           <div class="timeline__content">
-            <h4 class="timeline__title">{item.title}</h4>
+            <div class="timeline__header">
+              <h4 class="timeline__title">{item.title}</h4>
+              {item.period && <span class="timeline__period">{item.period}</span>}
+            </div>
             <p class="timeline__subtitle">
               {item.link ? (
                 <a href={item.link} target="_blank" rel="noopener noreferrer">{item.subtitle}</a>
               ) : (
                 item.subtitle
               )}
-              {item.detail && <span class="timeline__detail"> · {item.detail}</span>}
             </p>
+            {item.detail && <p class="timeline__detail">{item.detail}</p>}
           </div>
         </div>
       ))}
@@ -57,57 +69,102 @@ const items = [
 <style>
   .timeline {
     position: relative;
-    padding-left: var(--space-xl);
-  }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 7px;
-    top: 4px;
-    bottom: 4px;
-    width: 2px;
-    background: var(--color-border);
   }
 
   .timeline__item {
-    position: relative;
-    padding-bottom: var(--space-lg);
+    display: flex;
+    gap: var(--space-lg);
   }
 
-  .timeline__item:last-child {
-    padding-bottom: 0;
+  .timeline__line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 20px;
   }
 
   .timeline__marker {
-    position: absolute;
-    left: calc(-1 * var(--space-xl) + 3px);
-    top: 6px;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background: var(--color-accent);
-    border: 2px solid var(--color-bg);
+    border: 3px solid var(--color-accent-bg);
     box-shadow: 0 0 0 2px var(--color-accent);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .timeline__connector {
+    width: 2px;
+    flex: 1;
+    background: var(--color-border);
+    margin: 4px 0;
+  }
+
+  .timeline__content {
+    padding-bottom: var(--space-xl);
+    flex: 1;
+  }
+
+  .timeline__item:last-child .timeline__content {
+    padding-bottom: 0;
+  }
+
+  .timeline__header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    margin-bottom: 2px;
+    flex-wrap: wrap;
   }
 
   .timeline__title {
+    font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+  }
+
+  .timeline__period {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    font-family: var(--font-sans);
+    white-space: nowrap;
   }
 
   .timeline__subtitle {
     font-size: 0.9rem;
     color: var(--color-text-secondary);
     margin: 0;
+    line-height: 1.5;
   }
 
   .timeline__subtitle a {
     color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .timeline__subtitle a:hover {
+    text-decoration: underline;
   }
 
   .timeline__detail {
-    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 4px 0 0;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .timeline__header {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline__period {
+      order: -1;
+    }
   }
 </style>

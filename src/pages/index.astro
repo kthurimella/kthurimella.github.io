@@ -15,23 +15,27 @@ const featured = allPubs
 <BaseLayout title="Kumar Thurimella — MD/PhD Candidate">
   <Hero />
 
+  <!-- About -->
   <section class="section fade-in">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
+    <div class="container container--narrow">
+      <span class="section-label">About</span>
+      <h2 class="section-title">Personal Motivation</h2>
       <div class="prose">
         <p>
-          I am an MD/PhD student at the <strong>University of Colorado School of Medicine</strong> and the <strong>University of Cambridge</strong>. As an applied mathematician and software engineer turned future physician, I use computational and mathematical approaches to uncover mechanisms behind inflammatory diseases of the gut.
+          I am an MD/PhD student at the <strong>University of Colorado School of Medicine</strong> and the <strong>University of Cambridge</strong>. As an applied mathematician and software engineer turned future physician-scientist, I use computational and mathematical approaches to uncover mechanisms behind inflammatory and autoimmune diseases.
         </p>
         <p>
-          For more than a decade, I watched as my father battled ulcerative colitis. Failed treatments and seemingly endless hospital trips ultimately led to pre-colonic cancer and a total colectomy. That experience gave me a glimpse into the fragility of health and inspired me to help patients with inflammatory bowel disease and other autoimmune diseases.
+          For more than a decade, I watched as my father battled ulcerative colitis. Failed treatments and seemingly endless hospital trips ultimately led to pre-colonic cancer and a total colectomy. That experience gave me a glimpse into the fragility of health and inspired me to help patients with inflammatory bowel disease and other autoimmune diseases — and ultimately drew me toward <strong>rheumatology</strong>, where the intersection of immune dysregulation and computational modeling offers transformative potential.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="section fade-in">
-    <div class="container">
-      <h2 class="section-title">Current Research</h2>
+  <!-- Research -->
+  <section id="research" class="section fade-in">
+    <div class="container container--narrow">
+      <span class="section-label">Research</span>
+      <h2 class="section-title">Current Work</h2>
       <div class="prose">
         <p>
           My PhD in <strong>Biotechnology and Mathematics/Statistics</strong> focuses on using mathematical modelling to understand inflammatory disease mechanisms and aid the discovery of future treatments. I work with <a href="https://www.ceb.cam.ac.uk/research/groups/best" target="_blank" rel="noopener noreferrer">Dr. Roisin Owens</a> and <a href="http://www.statslab.cam.ac.uk/~sb2116/" target="_blank" rel="noopener noreferrer">Dr. Sergio Bacallado</a> at Cambridge, and am jointly advised by <a href="https://www.broadinstitute.org/xavier-lab" target="_blank" rel="noopener noreferrer">Dr. Ramnik Xavier</a> at the <strong>Broad Institute</strong> and <strong>Mass General Hospital</strong>.
@@ -46,11 +50,45 @@ const featured = allPubs
     </div>
   </section>
 
+  <!-- Clinical Training -->
+  <section class="section fade-in">
+    <div class="container container--narrow">
+      <span class="section-label">Clinical Training</span>
+      <h2 class="section-title">Medical Education</h2>
+      <div class="clinical-highlights">
+        <div class="highlight-card">
+          <div class="highlight-number">6/6</div>
+          <div class="highlight-label">Core Clerkship Honors</div>
+        </div>
+        <div class="highlight-card highlight-card--accent">
+          <div class="highlight-badge">AOA</div>
+          <div class="highlight-label">Alpha Omega Alpha</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>
+          </div>
+          <div class="highlight-label">Rheumatology Interest</div>
+        </div>
+      </div>
+      <div class="prose">
+        <p>
+          At the <strong>University of Colorado School of Medicine</strong>, I earned Honors in all six core clinical clerkships — Internal Medicine, OB/GYN, Pediatrics, Family Medicine, Psychiatry, and Surgery — as well as in my Rheumatology and Medicine Acting Internship rotations. I was elected to <strong>Alpha Omega Alpha (AOA)</strong>, the national medical honor society.
+        </p>
+        <p>
+          My clinical experiences have deepened my commitment to pursuing a career as a physician-scientist in <strong>rheumatology</strong>. The intersection of autoimmune disease mechanisms, computational biology, and patient care drives my goal of contributing to both the scientific understanding and clinical management of rheumatic diseases through physician-scientist training programs.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <Timeline />
 
+  <!-- Selected Publications -->
   <section class="section fade-in">
     <div class="container">
-      <h2 class="section-title">Selected Publications</h2>
+      <span class="section-label">Publications</span>
+      <h2 class="section-title">Selected Papers</h2>
       <div class="pub-grid">
         {featured.map((pub) => (
           <PublicationCard
@@ -65,16 +103,82 @@ const featured = allPubs
         ))}
       </div>
       <div class="pub-more">
-        <a href="/publications/" class="pub-more__link">View all publications &rarr;</a>
+        <a href="/publications/" class="pub-more__link">
+          View all publications
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+        </a>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .pub-grid {
+  /* Clinical Highlights Grid */
+  .clinical-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .highlight-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .highlight-card:hover {
+    border-color: var(--color-accent-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .highlight-card--accent {
+    background: var(--color-accent-bg);
+    border-color: var(--color-accent-border);
+  }
+
+  .highlight-number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  .highlight-badge {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  .highlight-icon {
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+  }
+
+  .highlight-label {
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    letter-spacing: -0.01em;
+  }
+
+  /* Publications Grid */
+  .pub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
   }
 
@@ -84,13 +188,28 @@ const featured = allPubs
   }
 
   .pub-more__link {
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-heading);
+    font-weight: 600;
     font-size: 0.95rem;
     color: var(--color-accent);
-    transition: color var(--transition-fast);
+    transition: gap var(--transition-fast);
   }
 
   .pub-more__link:hover {
     color: var(--color-accent-hover);
+    gap: var(--space-md);
+  }
+
+  @media (max-width: 768px) {
+    .clinical-highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .pub-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
