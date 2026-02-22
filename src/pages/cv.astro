@@ -15,6 +15,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </a>
         </div>
       </div>
+      <div class="cv-highlights">
+        <h2 class="cv-highlights__title">Awards & Honors</h2>
+        <div class="cv-awards">
+          <div class="cv-award">
+            <span class="cv-award__name">Gates Cambridge Scholarship</span>
+            <span class="cv-award__detail">University of Cambridge</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Alpha Omega Alpha (AOA)</span>
+            <span class="cv-award__detail">National Medical Honor Society</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Dr. Henry Christian Award</span>
+            <span class="cv-award__detail">Most Outstanding Abstract, AFMR</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Carl Storm Fellowship</span>
+            <span class="cv-award__detail">Gordon Research Conference</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Future of Science Scholarship</span>
+            <span class="cv-award__detail">Keystone Symposia, 2025</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Rotary International Scholarship</span>
+            <span class="cv-award__detail">Global Grant Scholar</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Clinical Professionalism Award</span>
+            <span class="cv-award__detail">University of Colorado SOM</span>
+          </div>
+        </div>
+      </div>
+
       <div class="cv-embed">
         <iframe
           src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://kthurimella.github.io/files/KumarThurimella_CV.pdf"
@@ -81,5 +115,53 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .cv-embed iframe {
     border: none;
     display: block;
+  }
+
+  /* Awards Section */
+  .cv-highlights {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .cv-highlights__title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-border);
+    letter-spacing: -0.01em;
+  }
+
+  .cv-awards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .cv-award {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-base);
+  }
+
+  .cv-award:hover {
+    border-color: var(--color-accent-border);
+  }
+
+  .cv-award__name {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .cv-award__detail {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
   }
 </style>
