@@ -1,0 +1,123 @@
+---
+interface Props {
+  title: string;
+  venue: string;
+  date: Date;
+  excerpt: string;
+  citation: string;
+  paperurl?: string;
+  slug: string;
+}
+
+const { title, venue, date, excerpt, citation, paperurl, slug } = Astro.props;
+const year = date.getFullYear();
+
+// Clean venue of HTML entities for display
+const cleanVenue = venue.replace(/&amp;/g, '&');
+---
+
+<article class="pub-card">
+  <div class="pub-card__meta">
+    <span class="pub-card__venue">{cleanVenue}</span>
+    <span class="pub-card__year">{year}</span>
+  </div>
+  <h3 class="pub-card__title">{title}</h3>
+  <p class="pub-card__excerpt">{excerpt}</p>
+  <p class="pub-card__citation" set:html={citation} />
+  {paperurl && (
+    <div class="pub-card__links">
+      <a href={paperurl} class="pub-card__link" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+        Paper
+      </a>
+    </div>
+  )}
+</article>
+
+<style>
+  .pub-card {
+    padding: var(--space-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+  }
+
+  .pub-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .pub-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    font-size: 0.8rem;
+  }
+
+  .pub-card__venue {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  .pub-card__year {
+    color: var(--color-text-secondary);
+  }
+
+  .pub-card__year::before {
+    content: '·';
+    margin-right: var(--space-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .pub-card__title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: var(--space-sm);
+  }
+
+  .pub-card__excerpt {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+  }
+
+  .pub-card__citation {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    font-family: var(--font-serif);
+    margin-bottom: var(--space-sm);
+  }
+
+  .pub-card__citation :global(i) {
+    font-style: italic;
+  }
+
+  .pub-card__links {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .pub-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    padding: 4px 10px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+
+  .pub-card__link:hover {
+    background: var(--color-accent);
+    color: #fff;
+  }
+</style>

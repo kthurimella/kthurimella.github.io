@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found — Kumar Thurimella">
+  <section class="not-found">
+    <div class="container">
+      <h1>404</h1>
+      <p>This page doesn't exist.</p>
+      <a href="/">Go home &rarr;</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    padding: var(--space-4xl) 0;
+    text-align: center;
+  }
+
+  .not-found h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .not-found p {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .not-found a {
+    font-weight: 500;
+    color: var(--color-accent);
+  }
+</style>

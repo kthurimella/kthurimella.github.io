@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationCard from '../components/PublicationCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPubs = await getCollection('publications');
+const sorted = allPubs.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const firstAuthor = sorted.filter((p) => p.data.firstAuthor);
+const contributing = sorted.filter((p) => !p.data.firstAuthor);
+---
+
+<BaseLayout title="Publications — Kumar Thurimella" description="Research publications by Kumar Thurimella in computational biology, microbiome research, and applied mathematics.">
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">Publications</h1>
+      <p class="page-subtitle">
+        See also my <a href="https://scholar.google.com/citations?user=3PVZTukAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>.
+      </p>
+
+      <h2 class="group-title">First & Co-First Author</h2>
+      <div class="pub-grid fade-in">
+        {firstAuthor.map((pub) => (
+          <PublicationCard
+            title={pub.data.title}
+            venue={pub.data.venue}
+            date={pub.data.date}
+            excerpt={pub.data.excerpt}
+            citation={pub.data.citation}
+            paperurl={pub.data.paperurl}
+            slug={pub.id}
+          />
+        ))}
+      </div>
+
+      <h2 class="group-title">Contributing Author</h2>
+      <div class="pub-grid fade-in">
+        {contributing.map((pub) => (
+          <PublicationCard
+            title={pub.data.title}
+            venue={pub.data.venue}
+            date={pub.data.date}
+            excerpt={pub.data.excerpt}
+            citation={pub.data.citation}
+            paperurl={pub.data.paperurl}
+            slug={pub.id}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-2xl);
+  }
+
+  .page-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .page-subtitle a {
+    color: var(--color-accent);
+  }
+
+  .group-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .pub-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+  }
+</style>

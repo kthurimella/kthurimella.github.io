@@ -1,0 +1,113 @@
+---
+const items = [
+  {
+    title: 'PhD, Biotechnology & Mathematics/Statistics',
+    subtitle: 'University of Cambridge',
+    detail: 'Gates Cambridge Scholar',
+    link: 'https://www.cam.ac.uk/',
+  },
+  {
+    title: 'MD Candidate',
+    subtitle: 'University of Colorado School of Medicine',
+    link: 'https://medschool.cuanschutz.edu/',
+  },
+  {
+    title: 'Software Engineer II',
+    subtitle: 'Uber',
+    detail: 'San Francisco, CA · 2015–2017',
+  },
+  {
+    title: 'MPhil, Computational Biology',
+    subtitle: 'Wellcome Sanger Institute / University of Cambridge',
+    link: 'https://www.sanger.ac.uk/group/trynka-faculty/',
+  },
+  {
+    title: 'BS, Applied Mathematics',
+    subtitle: 'University of Colorado Boulder',
+    detail: '2013',
+    link: 'http://amath.colorado.edu/',
+  },
+];
+---
+
+<section class="section fade-in">
+  <div class="container">
+    <h2 class="section-title">Background</h2>
+    <div class="timeline">
+      {items.map((item) => (
+        <div class="timeline__item">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <h4 class="timeline__title">{item.title}</h4>
+            <p class="timeline__subtitle">
+              {item.link ? (
+                <a href={item.link} target="_blank" rel="noopener noreferrer">{item.subtitle}</a>
+              ) : (
+                item.subtitle
+              )}
+              {item.detail && <span class="timeline__detail"> · {item.detail}</span>}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    position: relative;
+    padding-left: var(--space-xl);
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: var(--color-border);
+  }
+
+  .timeline__item {
+    position: relative;
+    padding-bottom: var(--space-lg);
+  }
+
+  .timeline__item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline__marker {
+    position: absolute;
+    left: calc(-1 * var(--space-xl) + 3px);
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 0 0 2px var(--color-accent);
+  }
+
+  .timeline__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .timeline__subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .timeline__subtitle a {
+    color: var(--color-accent);
+  }
+
+  .timeline__detail {
+    color: var(--color-text-secondary);
+  }
+</style>

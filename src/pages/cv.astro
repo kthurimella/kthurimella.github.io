@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="CV — Kumar Thurimella" description="Curriculum Vitae for Kumar Thurimella — MD/PhD Candidate at Colorado & Cambridge.">
+  <section class="section">
+    <div class="container container--wide">
+      <h1 class="page-title">Curriculum Vitae</h1>
+      <div class="cv-actions">
+        <a href="/files/KumarThurimella_CV.pdf" class="cv-download" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+          Download CV (PDF)
+        </a>
+      </div>
+      <div class="cv-embed">
+        <iframe
+          src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://kthurimella.github.io/files/KumarThurimella_CV.pdf"
+          width="100%"
+          height="800"
+          title="Kumar Thurimella CV"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+    margin-top: var(--space-2xl);
+  }
+
+  .cv-actions {
+    margin-bottom: var(--space-xl);
+  }
+
+  .cv-download {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 10px 20px;
+    background: var(--color-accent);
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .cv-download:hover {
+    background: var(--color-accent-hover);
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+
+  .cv-embed {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .cv-embed iframe {
+    border: none;
+    display: block;
+  }
+</style>
