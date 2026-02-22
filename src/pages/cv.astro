@@ -3,15 +3,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="CV — Kumar Thurimella" description="Curriculum Vitae for Kumar Thurimella — MD/PhD Candidate at Colorado & Cambridge.">
-  <section class="section">
-    <div class="container container--wide">
-      <h1 class="page-title">Curriculum Vitae</h1>
-      <div class="cv-actions">
-        <a href="/files/KumarThurimella_CV.pdf" class="cv-download" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
-          Download CV (PDF)
-        </a>
+  <section class="cv-page">
+    <div class="container">
+      <div class="cv-page__header">
+        <span class="section-label">Curriculum Vitae</span>
+        <h1 class="cv-page__title">CV</h1>
+        <div class="cv-actions">
+          <a href="/files/KumarThurimella_CV.pdf" class="cv-download" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+            Download PDF
+          </a>
+        </div>
       </div>
+      <div class="cv-highlights">
+        <h2 class="cv-highlights__title">Awards & Honors</h2>
+        <div class="cv-awards">
+          <div class="cv-award">
+            <span class="cv-award__name">Gates Cambridge Scholarship</span>
+            <span class="cv-award__detail">University of Cambridge</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Alpha Omega Alpha (AOA)</span>
+            <span class="cv-award__detail">National Medical Honor Society</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Dr. Henry Christian Award</span>
+            <span class="cv-award__detail">Most Outstanding Abstract, AFMR</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Carl Storm Fellowship</span>
+            <span class="cv-award__detail">Gordon Research Conference</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Future of Science Scholarship</span>
+            <span class="cv-award__detail">Keystone Symposia, 2025</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Rotary International Scholarship</span>
+            <span class="cv-award__detail">Global Grant Scholar</span>
+          </div>
+          <div class="cv-award">
+            <span class="cv-award__name">Clinical Professionalism Award</span>
+            <span class="cv-award__detail">University of Colorado SOM</span>
+          </div>
+        </div>
+      </div>
+
       <div class="cv-embed">
         <iframe
           src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://kthurimella.github.io/files/KumarThurimella_CV.pdf"
@@ -26,44 +63,105 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  .page-title {
-    font-size: 2rem;
-    font-weight: 700;
+  .cv-page {
+    padding: var(--space-3xl) 0 var(--space-4xl);
+  }
+
+  .cv-page__header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .cv-page__title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
     margin-bottom: var(--space-lg);
-    margin-top: var(--space-2xl);
   }
 
   .cv-actions {
-    margin-bottom: var(--space-xl);
+    display: flex;
+    gap: var(--space-md);
   }
 
   .cv-download {
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm);
-    padding: 10px 20px;
+    padding: 12px 24px;
     background: var(--color-accent);
     color: #ffffff;
-    font-weight: 500;
-    font-size: 0.95rem;
-    border-radius: var(--radius-sm);
-    transition: background var(--transition-fast), transform var(--transition-fast);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
   }
 
   .cv-download:hover {
     background: var(--color-accent-hover);
     color: #ffffff;
     transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(13, 148, 136, 0.3);
   }
 
   .cv-embed {
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
   }
 
   .cv-embed iframe {
     border: none;
     display: block;
+  }
+
+  /* Awards Section */
+  .cv-highlights {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .cv-highlights__title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-border);
+    letter-spacing: -0.01em;
+  }
+
+  .cv-awards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .cv-award {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-base);
+  }
+
+  .cv-award:hover {
+    border-color: var(--color-accent-border);
+  }
+
+  .cv-award__name {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .cv-award__detail {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
   }
 </style>

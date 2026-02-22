@@ -8,83 +8,135 @@ const socialLinks = [
 ---
 
 <section class="hero">
-  <div class="container hero__inner">
+  <div class="hero__glow hero__glow--top"></div>
+  <div class="hero__glow hero__glow--bottom"></div>
+  <div class="hero__content">
     <div class="hero__photo">
       <img src="/images/WhiteCoat.jpg" alt="Kumar Thurimella" width="180" height="180" loading="eager" />
     </div>
-    <div class="hero__text">
-      <h1 class="hero__name">Kumar Thurimella</h1>
-      <p class="hero__tagline">MD/PhD Candidate &middot; Applied Mathematician &middot; Former Software Engineer</p>
-      <p class="hero__affiliation">University of Colorado School of Medicine &middot; University of Cambridge</p>
-      <div class="hero__social">
-        {socialLinks.map(({ label, href, icon }) => (
-          <a href={href} class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label={label}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              {icon === 'email' && <Fragment><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></Fragment>}
-              {icon === 'scholar' && <Fragment><path d="M12 14l-4-4h8l-4 4z" fill="currentColor" stroke="none" /><path d="M22 9l-10 7L2 9l10-7 10 7z" /><path d="M6 11.5V17a6 6 0 0 0 12 0v-5.5" /></Fragment>}
-              {icon === 'github' && <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />}
-              {icon === 'linkedin' && <Fragment><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></Fragment>}
-            </svg>
-          </a>
-        ))}
-      </div>
+    <h1 class="hero__name">Kumar Thurimella</h1>
+    <p class="hero__tagline">MD/PhD Candidate · Physician-Scientist in Training</p>
+    <div class="hero__affiliations">
+      <span>University of Colorado School of Medicine</span>
+      <span class="hero__dot">&middot;</span>
+      <span>University of Cambridge</span>
+    </div>
+    <div class="hero__social">
+      {socialLinks.map(({ label, href, icon }) => (
+        <a href={href} class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label={label}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            {icon === 'email' && <Fragment><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></Fragment>}
+            {icon === 'scholar' && <Fragment><path d="M12 14l-4-4h8l-4 4z" fill="currentColor" stroke="none" /><path d="M22 9l-10 7L2 9l10-7 10 7z" /><path d="M6 11.5V17a6 6 0 0 0 12 0v-5.5" /></Fragment>}
+            {icon === 'github' && <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />}
+            {icon === 'linkedin' && <Fragment><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></Fragment>}
+          </svg>
+        </a>
+      ))}
+    </div>
+    <div class="hero__cta">
+      <a href="#research" class="hero__btn hero__btn--primary">View Research</a>
+      <a href="/cv/" class="hero__btn hero__btn--secondary">Download CV</a>
     </div>
   </div>
 </section>
 
 <style>
   .hero {
-    padding: var(--space-4xl) 0 var(--space-2xl);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+    padding: var(--space-5xl) var(--space-xl);
+    text-align: center;
   }
 
-  .hero__inner {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2xl);
+  .hero__glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero__glow--top {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(13, 148, 136, 0.12) 0%, transparent 70%);
+    top: -400px;
+    right: -200px;
+  }
+
+  .hero__glow--bottom {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(13, 148, 136, 0.08) 0%, transparent 70%);
+    bottom: -300px;
+    left: -150px;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero__photo {
+    margin-bottom: var(--space-xl);
   }
 
   .hero__photo img {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--color-accent);
-    box-shadow: var(--shadow-lg);
+    margin: 0 auto;
+    border: 3px solid rgba(13, 148, 136, 0.4);
+    box-shadow: 0 0 40px rgba(13, 148, 136, 0.15), 0 0 80px rgba(13, 148, 136, 0.05);
   }
 
   .hero__name {
-    font-size: 2.25rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-sm);
+    line-height: 1.1;
   }
 
   .hero__tagline {
-    font-size: 1.05rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-accent-light);
+    margin-bottom: var(--space-md);
   }
 
-  .hero__affiliation {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-md);
+  .hero__affiliations {
+    font-size: 0.95rem;
+    color: var(--color-hero-muted);
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
+  }
+
+  .hero__dot {
+    margin: 0 var(--space-sm);
   }
 
   .hero__social {
     display: flex;
-    gap: var(--space-md);
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
   }
 
   .hero__social-link {
-    color: var(--color-text-secondary);
+    color: var(--color-hero-muted);
     transition: color var(--transition-fast), transform var(--transition-fast);
     display: flex;
     align-items: center;
   }
 
   .hero__social-link:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-light);
     transform: translateY(-2px);
   }
 
@@ -93,22 +145,80 @@ const socialLinks = [
     height: 22px;
   }
 
-  @media (max-width: 640px) {
+  .hero__cta {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .hero__btn {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .hero__btn--primary {
+    background: var(--color-accent);
+    color: #FFFFFF;
+  }
+
+  .hero__btn--primary:hover {
+    background: var(--color-accent-light);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(13, 148, 136, 0.3);
+  }
+
+  .hero__btn--secondary {
+    background: transparent;
+    color: var(--color-hero-muted);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+  }
+
+  .hero__btn--secondary:hover {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
     .hero {
-      padding: var(--space-2xl) 0 var(--space-xl);
-    }
-
-    .hero__inner {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .hero__social {
-      justify-content: center;
+      padding: var(--space-3xl) var(--space-lg);
     }
 
     .hero__name {
-      font-size: 1.75rem;
+      font-size: 2.25rem;
+    }
+
+    .hero__tagline {
+      font-size: 1rem;
+    }
+
+    .hero__affiliations {
+      font-size: 0.85rem;
+    }
+
+    .hero__affiliations span:not(.hero__dot) {
+      display: block;
+    }
+
+    .hero__dot {
+      display: none;
+    }
+
+    .hero__cta {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero__btn {
+      width: 100%;
+      max-width: 220px;
+      text-align: center;
     }
   }
 </style>

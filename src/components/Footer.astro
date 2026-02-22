@@ -11,19 +11,26 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="footer__inner">
-    <div class="footer__links">
-      {socialLinks.map(({ label, href, icon }) => (
-        <a href={href} class="footer__link" target="_blank" rel="noopener noreferrer" aria-label={label}>
-          <svg class="footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            {icon === 'email' && <Fragment><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></Fragment>}
-            {icon === 'scholar' && <Fragment><path d="M12 14l-4-4h8l-4 4z" fill="currentColor" stroke="none" /><path d="M22 9l-10 7L2 9l10-7 10 7z" /><path d="M6 11.5V17a6 6 0 0 0 12 0v-5.5" /></Fragment>}
-            {icon === 'github' && <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />}
-            {icon === 'linkedin' && <Fragment><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></Fragment>}
-          </svg>
-        </a>
-      ))}
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="footer__logo">KT</span>
+        <span class="footer__name">Kumar Thurimella</span>
+      </div>
+      <div class="footer__links">
+        {socialLinks.map(({ label, href, icon }) => (
+          <a href={href} class="footer__link" target="_blank" rel="noopener noreferrer" aria-label={label}>
+            <svg class="footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              {icon === 'email' && <Fragment><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></Fragment>}
+              {icon === 'scholar' && <Fragment><path d="M12 14l-4-4h8l-4 4z" fill="currentColor" stroke="none" /><path d="M22 9l-10 7L2 9l10-7 10 7z" /><path d="M6 11.5V17a6 6 0 0 0 12 0v-5.5" /></Fragment>}
+              {icon === 'github' && <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />}
+              {icon === 'linkedin' && <Fragment><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></Fragment>}
+            </svg>
+          </a>
+        ))}
+      </div>
     </div>
-    <p class="footer__copy">&copy; {year} Kumar Thurimella</p>
+    <div class="footer__divider"></div>
+    <p class="footer__copy">&copy; {year} Kumar Thurimella. Built with Astro.</p>
   </div>
 </footer>
 
@@ -31,23 +38,51 @@ const year = new Date().getFullYear();
   .footer {
     background: var(--color-footer-bg);
     color: var(--color-footer-text);
-    padding: var(--space-2xl) var(--space-lg);
+    padding: var(--space-2xl) var(--space-xl);
     margin-top: auto;
-    text-align: center;
   }
 
   .footer__inner {
-    max-width: var(--max-width-wide);
+    max-width: var(--max-width);
     margin: 0 auto;
+  }
+
+  .footer__top {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
+    justify-content: space-between;
+  }
+
+  .footer__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .footer__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.75rem;
+    border-radius: 6px;
+  }
+
+  .footer__name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #FFFFFF;
   }
 
   .footer__links {
     display: flex;
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 
   .footer__link {
@@ -58,7 +93,7 @@ const year = new Date().getFullYear();
   }
 
   .footer__link:hover {
-    color: #ffffff;
+    color: var(--color-accent-light);
     transform: translateY(-2px);
   }
 
@@ -67,9 +102,30 @@ const year = new Date().getFullYear();
     height: 20px;
   }
 
+  .footer__divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: var(--space-lg) 0;
+  }
+
   .footer__copy {
     font-size: 0.8rem;
-    color: #9ca3af;
+    color: #64748B;
     margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: var(--space-xl) var(--space-lg);
+    }
+
+    .footer__top {
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .footer__copy {
+      text-align: center;
+    }
   }
 </style>

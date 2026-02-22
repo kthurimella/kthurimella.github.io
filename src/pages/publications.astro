@@ -11,76 +11,218 @@ const contributing = sorted.filter((p) => !p.data.firstAuthor);
 ---
 
 <BaseLayout title="Publications — Kumar Thurimella" description="Research publications by Kumar Thurimella in computational biology, microbiome research, and applied mathematics.">
-  <section class="section">
+  <section class="pub-page">
     <div class="container">
-      <h1 class="page-title">Publications</h1>
-      <p class="page-subtitle">
-        See also my <a href="https://scholar.google.com/citations?user=3PVZTukAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>.
-      </p>
-
-      <h2 class="group-title">First & Co-First Author</h2>
-      <div class="pub-grid fade-in">
-        {firstAuthor.map((pub) => (
-          <PublicationCard
-            title={pub.data.title}
-            venue={pub.data.venue}
-            date={pub.data.date}
-            excerpt={pub.data.excerpt}
-            citation={pub.data.citation}
-            paperurl={pub.data.paperurl}
-            slug={pub.id}
-          />
-        ))}
+      <div class="pub-page__header">
+        <span class="section-label">Research Output</span>
+        <h1 class="pub-page__title">Publications</h1>
+        <p class="pub-page__subtitle">
+          See also my <a href="https://scholar.google.com/citations?user=3PVZTukAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>.
+        </p>
       </div>
 
-      <h2 class="group-title">Contributing Author</h2>
-      <div class="pub-grid fade-in">
-        {contributing.map((pub) => (
-          <PublicationCard
-            title={pub.data.title}
-            venue={pub.data.venue}
-            date={pub.data.date}
-            excerpt={pub.data.excerpt}
-            citation={pub.data.citation}
-            paperurl={pub.data.paperurl}
-            slug={pub.id}
-          />
-        ))}
+      <div class="pub-section fade-in">
+        <h2 class="pub-section__title">First & Co-First Author</h2>
+        <div class="pub-grid">
+          {firstAuthor.map((pub) => (
+            <PublicationCard
+              title={pub.data.title}
+              venue={pub.data.venue}
+              date={pub.data.date}
+              excerpt={pub.data.excerpt}
+              citation={pub.data.citation}
+              paperurl={pub.data.paperurl}
+              slug={pub.id}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div class="pub-section fade-in">
+        <h2 class="pub-section__title">Selected Presentations</h2>
+        <div class="presentations-list">
+          <div class="presentation">
+            <span class="presentation__badge">Oral</span>
+            <div class="presentation__content">
+              <h3 class="presentation__title">Protein Language Model Guided Discovery of Microbial Protease Allergens</h3>
+              <p class="presentation__details">Gordon Research Conference, 2026 &middot; Ventura, CA</p>
+              <p class="presentation__authors">K. Thurimella, E.C. Wu, C. Li, D.R. Plichta, C.L. Sokol, R.J. Xavier, S. Bacallado</p>
+            </div>
+          </div>
+          <div class="presentation">
+            <span class="presentation__badge">Poster</span>
+            <div class="presentation__content">
+              <h3 class="presentation__title">Identifying Putative Microbial Enzyme Candidates Linked with Allergy and Glycobiology through Protein Language Model-Guided Homology</h3>
+              <p class="presentation__details">Keystone Symposia: Microbiota and Cancer Immunity, 2024 &middot; Taipei, Taiwan</p>
+              <p class="presentation__authors">K. Thurimella, C. Li, A.M. Mohamed, D.B. Graham, R. Owens, S.L.L Rosa, C.L. Sokol, D.R. Plichta, S. Bacallado, R.J. Xavier</p>
+            </div>
+          </div>
+          <div class="presentation">
+            <span class="presentation__badge">Oral</span>
+            <div class="presentation__content">
+              <h3 class="presentation__title">Employing Metabolomics and Microbiome Data to Build Algorithm for Interrogating Host-Microbe Interactions</h3>
+              <p class="presentation__details">Western Medical Research Conference, 2020 &middot; Carmel, CA</p>
+              <p class="presentation__authors">K. Thurimella, M. Shaffer, C. Lozupone</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-section fade-in">
+        <h2 class="pub-section__title">Contributing Author</h2>
+        <div class="pub-grid">
+          {contributing.map((pub) => (
+            <PublicationCard
+              title={pub.data.title}
+              venue={pub.data.venue}
+              date={pub.data.date}
+              excerpt={pub.data.excerpt}
+              citation={pub.data.citation}
+              paperurl={pub.data.paperurl}
+              slug={pub.id}
+            />
+          ))}
+        </div>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .page-title {
-    font-size: 2rem;
-    font-weight: 700;
+  .pub-page {
+    padding: var(--space-3xl) 0 var(--space-4xl);
+  }
+
+  .pub-page__header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .pub-page__title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
     margin-bottom: var(--space-sm);
-    margin-top: var(--space-2xl);
   }
 
-  .page-subtitle {
+  .pub-page__subtitle {
     color: var(--color-text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: var(--space-2xl);
+    font-size: 1rem;
+    margin: 0;
   }
 
-  .page-subtitle a {
+  .pub-page__subtitle a {
     color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(13, 148, 136, 0.3);
+    text-underline-offset: 3px;
   }
 
-  .group-title {
+  .pub-page__subtitle a:hover {
+    text-decoration-color: var(--color-accent);
+  }
+
+  .pub-section {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .pub-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .pub-section__title {
+    font-family: var(--font-heading);
     font-size: 1.15rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: var(--space-lg);
     padding-bottom: var(--space-sm);
     border-bottom: 2px solid var(--color-border);
+    letter-spacing: -0.01em;
   }
 
   .pub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  /* Presentations */
+  .presentations-list {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    margin-bottom: var(--space-2xl);
+  }
+
+  .presentation {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .presentation:hover {
+    border-color: var(--color-accent-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .presentation__badge {
+    flex-shrink: 0;
+    height: fit-content;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    background: var(--color-accent-bg);
+    border: 1px solid var(--color-accent-border);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  .presentation__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .presentation__title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .presentation__details {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 4px;
+  }
+
+  .presentation__authors {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    font-family: var(--font-serif);
+  }
+
+  @media (max-width: 768px) {
+    .pub-page__title {
+      font-size: 2rem;
+    }
+
+    .pub-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .presentation {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
   }
 </style>

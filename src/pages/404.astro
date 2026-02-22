@@ -5,34 +5,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="Page Not Found — Kumar Thurimella">
   <section class="not-found">
     <div class="container">
-      <h1>404</h1>
-      <p>This page doesn't exist.</p>
-      <a href="/">Go home &rarr;</a>
+      <p class="not-found__code">404</p>
+      <h1 class="not-found__title">Page not found</h1>
+      <p class="not-found__text">The page you're looking for doesn't exist or has been moved.</p>
+      <a href="/" class="not-found__link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
+        Back to home
+      </a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
   .not-found {
-    padding: var(--space-4xl) 0;
+    padding: var(--space-5xl) 0;
     text-align: center;
   }
 
-  .not-found h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--color-text-secondary);
+  .not-found__code {
+    font-family: var(--font-heading);
+    font-size: 6rem;
+    font-weight: 800;
+    color: var(--color-border);
+    line-height: 1;
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.03em;
+  }
+
+  .not-found__title {
+    font-size: 1.5rem;
     margin-bottom: var(--space-sm);
   }
 
-  .not-found p {
+  .not-found__text {
     color: var(--color-text-secondary);
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: var(--space-xl);
   }
 
-  .not-found a {
-    font-weight: 500;
+  .not-found__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
     color: var(--color-accent);
+    padding: 10px 20px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+  }
+
+  .not-found__link:hover {
+    background: var(--color-accent);
+    color: #fff;
   }
 </style>
