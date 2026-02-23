@@ -5,28 +5,28 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* Colors — Teal + Slate palette */
-  --color-bg: #F8FAFC;
+  /* Colors — Charcoal + Slate Blue palette */
+  --color-bg: #FAFAFA;
   --color-surface: #FFFFFF;
-  --color-text: #0F172A;
-  --color-text-secondary: #64748B;
-  --color-text-muted: #94A3B8;
-  --color-accent: #0D9488;
-  --color-accent-light: #14B8A6;
-  --color-accent-hover: #0F766E;
-  --color-accent-bg: #F0FDFA;
-  --color-accent-border: #99F6E4;
-  --color-border: #E2E8F0;
-  --color-border-light: #F1F5F9;
-  --color-dark: #0F172A;
-  --color-dark-secondary: #1E293B;
-  --color-dark-muted: #334155;
-  --color-hero-text: #F8FAFC;
-  --color-hero-muted: #94A3B8;
-  --color-footer-bg: #020617;
-  --color-footer-text: #CBD5E1;
-  --color-amber: #F59E0B;
-  --color-amber-bg: #FFFBEB;
+  --color-text: #1C1F26;
+  --color-text-secondary: #5F6673;
+  --color-text-muted: #8E95A2;
+  --color-accent: #5B7C99;
+  --color-accent-light: #6E8FA8;
+  --color-accent-hover: #496A85;
+  --color-accent-bg: #F0F4F8;
+  --color-accent-border: #C2D1DE;
+  --color-border: #E3E6EB;
+  --color-border-light: #F2F3F5;
+  --color-dark: #1C1F26;
+  --color-dark-secondary: #272B33;
+  --color-dark-muted: #3A3F4B;
+  --color-hero-text: #F5F5F5;
+  --color-hero-muted: #9CA3AF;
+  --color-footer-bg: #111318;
+  --color-footer-text: #C5C9D0;
+  --color-amber: #D4913B;
+  --color-amber-bg: #FBF7F0;
 
   /* Typography */
   --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
@@ -203,7 +203,7 @@ strong {
 .prose a {
   color: var(--color-accent);
   text-decoration: underline;
-  text-decoration-color: rgba(13, 148, 136, 0.3);
+  text-decoration-color: rgba(91, 124, 153, 0.3);
   text-underline-offset: 3px;
   transition: text-decoration-color var(--transition-fast);
 }
