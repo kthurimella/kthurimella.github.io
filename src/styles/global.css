@@ -29,7 +29,7 @@
   --color-amber-bg: #FBF7F0;
 
   /* Typography */
-  --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'Lora', Georgia, serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -118,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
   font-weight: 700;
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 h1 { font-size: 2.5rem; }
@@ -162,7 +162,7 @@ strong {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
