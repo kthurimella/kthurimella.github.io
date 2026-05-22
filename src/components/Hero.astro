@@ -14,10 +14,10 @@ const socialLinks = [
     <div class="hero__photo">
       <img src="/images/WhiteCoat.jpg" alt="Kumar Thurimella" width="180" height="180" loading="eager" />
     </div>
-    <h1 class="hero__name">Kumar Thurimella, PhD</h1>
-    <p class="hero__tagline">Incoming Internal Medicine Resident · Physician-Scientist in Training</p>
+    <h1 class="hero__name">Kumar Thurimella, MD, PhD</h1>
+    <p class="hero__tagline">Incoming Internal Medicine Resident · Physician-Scientist</p>
     <div class="hero__affiliations">
-      <span>Stanford Health Care (Incoming)</span>
+      <span>Stanford Health Care</span>
       <span class="hero__dot">&middot;</span>
       <span>University of Colorado School of Medicine</span>
       <span class="hero__dot">&middot;</span>
@@ -113,10 +113,11 @@ const socialLinks = [
   }
 
   .hero__affiliations {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-hero-muted);
     margin-bottom: var(--space-xl);
     line-height: 1.6;
+    white-space: nowrap;
   }
 
   .hero__dot {
@@ -202,6 +203,7 @@ const socialLinks = [
 
     .hero__affiliations {
       font-size: 0.85rem;
+      white-space: normal;
     }
 
     .hero__affiliations span:not(.hero__dot) {
