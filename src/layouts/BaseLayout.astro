@@ -10,6 +10,49 @@ interface Props {
 
 const { title, description = 'Kumar Thurimella, MD, PhD — MD from the University of Colorado, PhD from the University of Cambridge. Physician-scientist working at the intersection of AI, computational biology, and clinical medicine.' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+const ogImage = new URL('/images/WhiteCoat.jpg', Astro.site).toString();
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Kumar Thurimella',
+  alternateName: ['Kumar Thurimella, MD, PhD', 'Dr. Kumar Thurimella'],
+  url: 'https://kthurimella.github.io/',
+  image: ogImage,
+  jobTitle: 'Physician-Scientist, Incoming Internal Medicine Resident',
+  description,
+  alumniOf: [
+    {
+      '@type': 'CollegeOrUniversity',
+      name: 'University of Cambridge',
+      sameAs: 'https://www.cam.ac.uk/',
+    },
+    {
+      '@type': 'CollegeOrUniversity',
+      name: 'University of Colorado School of Medicine',
+      sameAs: 'https://medschool.cuanschutz.edu/',
+    },
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Stanford Health Care',
+    sameAs: 'https://stanfordhealthcare.org/',
+  },
+  knowsAbout: [
+    'Rheumatology',
+    'Internal Medicine',
+    'Computational Biology',
+    'Protein Language Models',
+    'Artificial Intelligence in Medicine',
+    'Microbiome',
+  ],
+  sameAs: [
+    'https://scholar.google.com/citations?user=3PVZTukAAAAJ',
+    'https://github.com/kthurimella',
+    'https://www.linkedin.com/in/kumarthurimella',
+  ],
+};
 ---
 
 <!DOCTYPE html>
@@ -19,13 +62,29 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <meta name="author" content="Kumar Thurimella" />
   <link rel="canonical" href={canonicalURL} />
 
   <!-- Open Graph -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={isHome ? 'profile' : 'website'} />
   <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="Kumar Thurimella" />
+  <meta property="og:image" content={ogImage} />
+  {isHome && <Fragment>
+    <meta property="profile:first_name" content="Kumar" />
+    <meta property="profile:last_name" content="Thurimella" />
+  </Fragment>}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Google Search Console verification (replace content value with your token from Search Console) -->
+  <!-- <meta name="google-site-verification" content="REPLACE_WITH_TOKEN" /> -->
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,6 +96,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  {isHome && (
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  )}
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2KTDJZWE27"></script>
