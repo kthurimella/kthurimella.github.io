@@ -1,6 +1,6 @@
 # kthurimella.github.io
 
-Personal website for Kumar Thurimella — MD/PhD Candidate at the University of Colorado School of Medicine and the University of Cambridge.
+Personal website for Kumar Thurimella, MD, PhD, an Internal Medicine resident and physician-scientist at Stanford Health Care.
 
 Built with [Astro](https://astro.build/).
 

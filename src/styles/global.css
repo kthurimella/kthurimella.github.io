@@ -5,28 +5,28 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* Colors — Charcoal + Slate Blue palette */
-  --color-bg: #FAFAFA;
+  /* Colors — Soft academic light palette */
+  --color-bg: #FBFAF7;
   --color-surface: #FFFFFF;
-  --color-text: #1C1F26;
-  --color-text-secondary: #5F6673;
-  --color-text-muted: #8E95A2;
-  --color-accent: #5B7C99;
-  --color-accent-light: #6E8FA8;
-  --color-accent-hover: #496A85;
-  --color-accent-bg: #F0F4F8;
-  --color-accent-border: #C2D1DE;
-  --color-border: #E3E6EB;
-  --color-border-light: #F2F3F5;
-  --color-dark: #1C1F26;
-  --color-dark-secondary: #272B33;
-  --color-dark-muted: #3A3F4B;
-  --color-hero-text: #F5F5F5;
-  --color-hero-muted: #9CA3AF;
-  --color-footer-bg: #111318;
-  --color-footer-text: #C5C9D0;
-  --color-amber: #D4913B;
-  --color-amber-bg: #FBF7F0;
+  --color-text: #22262E;
+  --color-text-secondary: #626B78;
+  --color-text-muted: #8A93A0;
+  --color-accent: #52708A;
+  --color-accent-light: #6A86A0;
+  --color-accent-hover: #415C73;
+  --color-accent-bg: #EEF4F7;
+  --color-accent-border: #C7D8E2;
+  --color-border: #E5E8EC;
+  --color-border-light: #F3F1EC;
+  --color-dark: #22262E;
+  --color-dark-secondary: #303641;
+  --color-dark-muted: #48505D;
+  --color-hero-text: #22262E;
+  --color-hero-muted: #626B78;
+  --color-footer-bg: #171A20;
+  --color-footer-text: #D2D6DE;
+  --color-amber: #B97833;
+  --color-amber-bg: #FBF4EA;
 
   /* Typography */
   --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
@@ -203,7 +203,7 @@ strong {
 .prose a {
   color: var(--color-accent);
   text-decoration: underline;
-  text-decoration-color: rgba(91, 124, 153, 0.3);
+  text-decoration-color: rgba(82, 112, 138, 0.32);
   text-underline-offset: 3px;
   transition: text-decoration-color var(--transition-fast);
 }
