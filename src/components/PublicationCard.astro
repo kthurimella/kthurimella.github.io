@@ -6,10 +6,11 @@ interface Props {
   excerpt: string;
   citation: string;
   paperurl?: string;
+  firstAuthor?: boolean;
   slug: string;
 }
 
-const { title, venue, date, excerpt, citation, paperurl, slug } = Astro.props;
+const { title, venue, date, excerpt, citation, paperurl, firstAuthor = false, slug } = Astro.props;
 const year = date.getFullYear();
 
 // Clean venue of HTML entities for display
@@ -37,6 +38,7 @@ const cleanVenue = venue.replace(/&amp;/g, '&');
       title
     )}
   </h3>
+  {firstAuthor && <span class="pub-card__authorship">First-author work</span>}
   <p class="pub-card__excerpt">{excerpt}</p>
   <p class="pub-card__citation" set:html={citation} />
 </article>
@@ -123,6 +125,21 @@ const cleanVenue = venue.replace(/&amp;/g, '&');
 
   .pub-card__title a:hover {
     color: var(--color-accent);
+  }
+
+  .pub-card__authorship {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: var(--space-sm);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-bg);
+    border: 1px solid var(--color-accent-border);
+    color: var(--color-accent);
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
   }
 
   .pub-card__excerpt {
