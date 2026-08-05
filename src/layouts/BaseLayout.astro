@@ -8,7 +8,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'Kumar Thurimella, MD, PhD — MD from the University of Colorado, PhD from the University of Cambridge. Physician-scientist working at the intersection of AI, computational biology, and clinical medicine.' } = Astro.props;
+const { title, description = 'Kumar Thurimella, MD, PhD, is an Internal Medicine resident and physician-scientist at Stanford Health Care whose work spans machine learning, computational biology, human immunology, and immune-mediated disease.' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
 const ogImage = new URL('/images/WhiteCoat.jpg', Astro.site).toString();
@@ -20,7 +20,7 @@ const personSchema = {
   alternateName: ['Kumar Thurimella, MD, PhD', 'Dr. Kumar Thurimella'],
   url: 'https://kthurimella.github.io/',
   image: ogImage,
-  jobTitle: 'Physician-Scientist, Incoming Internal Medicine Resident',
+  jobTitle: 'Internal Medicine Resident and Physician-Scientist',
   description,
   alumniOf: [
     {
@@ -40,11 +40,13 @@ const personSchema = {
     sameAs: 'https://stanfordhealthcare.org/',
   },
   knowsAbout: [
-    'Rheumatology',
     'Internal Medicine',
+    'Rheumatology',
+    'Computational Immunology',
     'Computational Biology',
     'Protein Language Models',
     'Artificial Intelligence in Medicine',
+    'Autoimmune Disease',
     'Microbiome',
   ],
   sameAs: [
@@ -71,6 +73,7 @@ const personSchema = {
   <meta property="og:type" content={isHome ? 'profile' : 'website'} />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:site_name" content="Kumar Thurimella" />
+  <!-- TODO: Consider replacing the headshot with a dedicated 1200 × 630 social preview card. -->
   <meta property="og:image" content={ogImage} />
   {isHome && <Fragment>
     <meta property="profile:first_name" content="Kumar" />
@@ -101,7 +104,7 @@ const personSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   )}
 
-  <!-- Google Analytics -->
+  <!-- Google Analytics: two GA4 measurement IDs are configured; repository history does not clarify whether both are required, so both are retained for owner review. -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7QJ4YLK8C"></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
